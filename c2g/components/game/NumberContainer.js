@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import Colors from "../../constants/colors";
 
@@ -11,11 +11,15 @@ function NumberContainer({ children }) {
   );
 }
 
+// windoe is exlucing status bar
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
   container: {
     borderWidth: 4,
     borderColor: Colors.accent500,
-    padding: 14,
+    padding: deviceWidth < 380 ? 12 : 24,
     borderRadius: 8,
     margin: 24,
     alignItems: "center",
